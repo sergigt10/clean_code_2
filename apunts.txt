@@ -37,32 +37,46 @@
 ** Acrónimo STUPID **
 ---------------------
 # 6 Code Smells que debemos de evitar:
+
 # Singleton: Patrón singleton. Pros -> Garantiza una única instancia de la clase a lo largo de toda la aplicación. Cons -> Vive en el contexto global. Puede ser modificado por cualquiera y en cualquier momento. No es rastreable. Difícil de testar debido a su ubicación.
+
 # Tight Coupling: Alto acoplamiento. Cons -> Un cambio en un módulo por lo general provoca un efecto dominó de los cambios en otros módulos. El ensamblaje de módulos puede requerir más esfuerzo y/o tiempo debido a la mayor dependencia entre módulos. Un módulo en particular puede ser más díficil de reutilizar y/o probar porque se deben incluir módulos dependientes.
 La cohesión se refiere a lo que la clase (o módulo) puede hacer. La baja cohesión significaría que la clase realiza una gran variedad de acciones: es amplia, no se enfoca en lo que debe hacer. Alta cohesión significa que la clase se enfoca en lo que debería esta haciendo, es decir, solo métodos relacionados con la intención de la clase (cosas que tengan que ver con su función).
 Acomplamiento se refiere a cuán relacionadas o dependientes son dos clases o módulos entre sí. Un bajo acoplamiento significa que cambiar algo importante en una clase no debería afectar a la otra, en cambio, un alto dificultaría el cambio y el mantenimiento de su codigo; dado que las clases están muy unidas, hacer un cambio podría requerir una renovación completa del sistema.
 (Lo ideal es tener bajo acoplamiento y alta cohesión)
+
 # Untestability: Código no probable (unit test).
 Código con alto acoplamiento, código con muchas dependencias no inyectadas. Dependencias en el contexto global (Tipo Singleton).
 # Premature optimization: Optimizaciones prematuras.
 # Indescriptive Naming: Nombres poco descriptivos.
 # Duplication: Duplicidad de código, no aplicar el principio DRY.
 
+** Law of Demeter **
+--------------------
+# No se debería acceder a otros objetos internos a través de otro objeto.
+
 ** Principios SOLID **
 ----------------------
 # Los principios de SOLID nos indican cómo organizar nuestras funciones y estructuras de datos en componentes y cómo dichos componentes deben estar interconectados.
+
 # S – Single Responsibility Principle (SRP)
 Responsabilidad única: Una clase debe tener sólo una responsabilidad.
 Detectar violaciones SRP: Nombres de clases y módulos demasiado genéricos, Cambios en el código suelen afectar la clase o módulo, La clase involucra múltiples capas, Número elevado de importaciones, Cantidad elevada de métodos públicos, Excesivo número de líneas de código.
+
 # O – Open/Closed Principle (OCP)
 Principio de abierto y cerrado: Es un principio que depende mucho del contexto. Establece que las entidades de software (clases, módulos, métodos, ...) deben estar abiertas para la extensión, pero cerradas para la modificación.
 Detectar violaciones de OPC: Cambios normalmente afectan nuestra clase o módulo, Cuando una clase o módulo afecta muchas capas.
+
 # L – Liskov Substitution Principle (LSP)
 Principio de Substitución de Liskov: Siendo U un subtipo de T, cualquier instancia de T debería poder ser substituida por cualquier instancia de U sin alterar las propiedades del sistema.
+Los objeto en un programa pueden ser replazados con instancias de sus subclases sin alterar el comportamiento.
+
 # I – Interface Segregation Principle (ISP)
 Los clientes no deberían estar obligados a depender de interfaces que no utilicen.
 Detectar violaciones de ISP: Si las interfaces que diseñamos nos obligan a violar los principios de responsabilidad única y substitución de Liskov.
+
 # D – Dependency Inversion Principle (DIP)
-Los módulos de alto nivel no deberían depender de módulos de bajo nivel. Ambos deberían depender de abstracciones. Las abstracciones no deberían depender de detalles. Los detalles deberían depender de abstracciones. Los componentes más importantes más imporantes son aquellos centrados en resolver el problema subyacente al negocio, es decir, la capa de dominio. Los menos importantes son los que están próximos a la infraestructura, es decir, aquellos relacionados con la UI, la persistencia, la comunicación con API externas, ...
+Uno debe depender de abstracciones, no de concreciones.
+Los módulos de alto nivel no deberían depender de módulos de bajo nivel. Ambos deberían depender de abstracciones. Las abstracciones no deberían depender de detalles. Los detalles deberían depender de abstracciones. Los componentes más importantes son aquellos centrados en resolver el problema subyacente al negocio, es decir, la capa de dominio. Los menos importantes son los que están próximos a la infraestructura, es decir, aquellos relacionados con la UI, la persistencia, la comunicación con API externas, ...
 Abstracciones: Se refiere que nosotros trabajemos con clases abstractas y que esas clases abstractas sean las que nosotros vamos a usar para trabajar en los lugares que las vamos a utlizar.
 Inyección de dependencias: significa que un módulo o componente requiere de otro para poder realizar su trabajo.
